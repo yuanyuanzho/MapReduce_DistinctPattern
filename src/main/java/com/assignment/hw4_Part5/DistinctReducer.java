@@ -1,0 +1,17 @@
+package com.assignment.hw4_Part5;
+
+import java.io.IOException;
+
+import org.apache.hadoop.io.NullWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Reducer;
+import org.apache.hadoop.mapreduce.Reducer.Context;
+
+public class DistinctReducer extends Reducer<Text, NullWritable, Text, NullWritable>{
+	
+	public void reduce(Text key, Iterable<NullWritable> values,Context context) 
+			throws IOException, InterruptedException{
+		
+		context.write(key, NullWritable.get());
+	}
+}
